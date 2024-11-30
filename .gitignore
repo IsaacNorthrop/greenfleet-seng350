@@ -1,0 +1,13 @@
+# Ignore object files
+*.o
+
+# Ignore executables (no file extension, or platform-specific extensions)
+*.exe
+*.out
+*.a
+*.so
+*.dll
+*.dylib
+
+# Ignore any other binary files that are not typically under version control
+*.bin
