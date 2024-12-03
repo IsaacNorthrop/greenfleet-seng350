@@ -13,6 +13,5 @@ class Ride {
         string capacity;
         bool rideShare;
         bool servingCustomer;
-        bool updateHeartbeat();
     
 };
