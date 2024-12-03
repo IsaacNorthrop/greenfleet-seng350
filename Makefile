@@ -12,7 +12,8 @@ STRATEGIES_DIR := strategies
 EXECUTABLE := $(BIN_DIR)/green_fleet
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 STRATEGY_FILES := $(wildcard $(STRATEGIES_DIR)/*.cpp)
-OBJ_FILES := $(patsubst %.cpp, $(BIN_DIR)/%.o, $(notdir $(SRC_FILES) $(STRATEGY_FILES)))
+COMMAND_FILES := $(wildcard $(COMMANDS_DIR)/*.cpp)
+OBJ_FILES := $(patsubst %.cpp, $(BIN_DIR)/%.o, $(notdir $(SRC_FILES) $(STRATEGY_FILES) $(COMMAND_FILES)))
 
 # Rules
 all: $(BIN_DIR) $(EXECUTABLE)
@@ -27,6 +28,9 @@ $(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(BIN_DIR)/%.o: $(STRATEGIES_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BIN_DIR)/%.o: $(COMMANDS_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

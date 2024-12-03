@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string>
+#include "../commands/updateCommand.h"
 
 using namespace std;
 
@@ -14,10 +15,12 @@ class Customer {
         string name;
         string password;
         string address;
+        string destination;
+        bool share;
         PaymentInfo customerPaymentInfo;
         int ecoPoints;
-        bool updateHeartbeat();
-        bool updatePoints();
+        updateCommand updateHeartbeat();
+        updateCommand updatePoints();
 
 };
 
